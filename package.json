@@ -1,0 +1,29 @@
+{
+  "name": "alpha-ten",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "run": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/date-and-time": "^0.13.0",
+    "@types/node": "^14.14.25",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.19.0",
+    "node-gyp": "^7.1.2",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "date-and-time": "^0.14.2",
+    "discord.js": "^12.5.1",
+    "discord.js-commando": "^0.12.0",
+    "sqlite": "^4.0.19",
+    "sqlite3": "^5.0.1"
+  }
+}
