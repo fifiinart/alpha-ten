@@ -29,8 +29,8 @@ class UserSettingsProvider {
   }
 
   async getUser(user: User): Promise<UserSettingsEntry> {
-    const stringifiedObject = (await this.db.get("select settings from user_settings where user_id = ?", [user.id])).settings;
-    return JSON.parse(stringifiedObject);
+    const stringifiedObject = (await this.db.get("select settings from user_settings where user_id = ?", [user.id]));
+    return Object.assign(defaultEntry, stringifiedObject ? JSON.parse(stringifiedObject.settings) : {});
   }
 
   async setObject(user: User, object: Partial<UserSettingsEntry>): Promise<void> {
@@ -47,5 +47,5 @@ class UserSettingsProvider {
     await this.db.run("delete from user_settings where user_id = ?", user.id)
   }
 
-  get = async <K extends keyof UserSettingsEntry>(user: User, key: K) => (await this.getUser(user))[key]
+  get = async (user: User, key: keyof UserSettingsEntry) => (await this.getUser(user))[key]
 }
