@@ -22,10 +22,10 @@ client.registry
   .registerDefaults()
   .registerGroups([
     ["util", "Utility"],
-    ["misc", "Miscellaneous"]
+    ["misc", "Miscellaneous"],
+    ["info", "Information"]
   ])
   .registerCommandsIn(join(__dirname, "commands"));
-
 client.once("ready", async () => {
   console.log(`Alpha Ten started up on ${date.format(new Date(), "MMM DD YY at hh:mm:ss")}.`);
 });
